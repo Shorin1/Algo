@@ -21,7 +21,7 @@ void initArr(MyStruct &t);
 void printArr(MyStruct *t);
 
 void initString(MyStruct &t);
-
+         
 void printString(MyStruct *t);
 
 void initNumber(MyStruct &t);
@@ -38,7 +38,7 @@ void initMyStruct(MyStruct &t) {
 }
 
 void initArr(MyStruct &t) {
-	cout << "Введите размер массива unsigned int arr" << endl;
+	cout << "Размер массива unsigned int arr = ";
 	cin >> t.length;
 	t.arr = new unsigned int[t.length];\
 	cout << "Введите значения в массив unsigned int arr" << endl;
@@ -49,6 +49,7 @@ void initArr(MyStruct &t) {
 }
 
 void printArr(MyStruct *t) {
+	cout << "Вывод массива" << endl;
 	for (int i = 0; i < t->length; i++) {
 		cout << "t.arr[" << i << "] = " << t->arr[i] << endl;
 	}
@@ -98,5 +99,12 @@ int main() {
 	for (int i = 0; i < 3; i++) {
 		deleteAll(&myStructPointer[i]);
 	}
+
+	{
+		MyStruct localStruct;
+		initArr(localStruct);
+	}
+
+	//printArr(&localstruct);
 	return 0;
 }
