@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int maint()
+int main1()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);

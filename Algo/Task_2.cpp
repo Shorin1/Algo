@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-
+/*
 struct MyStruct
 {
 	char studentFirstName[30];
@@ -82,7 +82,7 @@ void deleteAll(MyStruct *t) {
 	delete[] t->arr;
 }
 
-int main() {
+int main2() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
@@ -107,4 +107,4 @@ int main() {
 
 	//printArr(&localstruct);
 	return 0;
-}
+}*/
