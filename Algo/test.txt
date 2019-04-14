@@ -1,5 +1,5 @@
 Number: 0
 First name: FN
 Second name: SN
-Length: 2
-1; 2; 
+Length: 3
+1; 2; 3; 
