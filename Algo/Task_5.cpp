@@ -36,6 +36,14 @@ Element popQueue() {
 	}
 }
 
+Element getQueue(unsigned int item) {
+	Element result = *tail;
+	for (int i = 0; i < item; i++) {
+		result = *result.nextElement;
+	}
+	return result;
+}
+
 void pushStack(double data) {
 	Element element;
 	element.data = data;
