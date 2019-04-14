@@ -108,7 +108,7 @@ void writeStructToConsole(MyStruct t) {
 
 FILE *file;
 
-int main() {
+int main3() {
 	MyStruct *writeStructs = new MyStruct[3];
 	MyStruct *readTextStructs = new MyStruct[3];
 	MyStruct *readBinaryStructs = new MyStruct[3];
