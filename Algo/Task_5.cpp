@@ -5,17 +5,17 @@
 
 using namespace std;
 
-Element* head;
-Element* tail;
+/*Elements* head;
+Elements* tail;
 
-struct Element {
+struct Elements {
 	double data;
-	Element* nextElement;
-	Element* previousElement;
+	Elements* nextElement;
+	Elements* previousElement;
 };
 
 void pushQueue(double data) {
-	Element element;
+	Elements element;
 	element.data = data;
 	if (head == NULL) {
 		head = &element;
@@ -28,16 +28,16 @@ void pushQueue(double data) {
 	}
 }
 
-Element popQueue() {
+Elements popQueue() {
 	if (head != NULL) {
-		Element result = *head;
+		Elements result = *head;
 		head = head->previousElement;
 		return result;
 	}
 }
 
-Element getQueue(unsigned int item) {
-	Element result = *tail;
+Elements getQueue(unsigned int item) {
+	Elements result = *tail;
 	for (int i = 0; i < item; i++) {
 		result = *result.nextElement;
 	}
@@ -45,7 +45,7 @@ Element getQueue(unsigned int item) {
 }
 
 void pushStack(double data) {
-	Element element;
+	Elements element;
 	element.data = data;
 	if (head == NULL) {
 		head = &element;
@@ -57,10 +57,10 @@ void pushStack(double data) {
 	}
 }
 
-Element popStack() {
+Elements popStack() {
 	if (head != NULL) {
-		Element result = *head;
+		Elements result = *head;
 		head = head->previousElement;
 		return result;
 	}
-}
+}*/
