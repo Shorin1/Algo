@@ -22,6 +22,7 @@ struct List {
 			elem->data = data;
 
 			if (index == 0) {
+
 				if (size == 0) {
 					head = elem;
 				} 
@@ -29,11 +30,10 @@ struct List {
 					elem->nextElement = head;
 					head = elem;
 				}
+
 			}
 			else {
-				Element *prevElem;
-				prevElem = head;
-				prevElem = get(index);
+				Element *prevElem = get(index - 1);
 
 				elem->nextElement = prevElem->nextElement;
 				prevElem->nextElement = elem;
@@ -55,8 +55,7 @@ struct List {
 				}
 			}
 			else {
-				Element *prevElem = head;
-				prevElem = get(index - 1);
+				Element *prevElem = get(index - 1);
 				removeElem = prevElem->nextElement;
 				prevElem->nextElement = removeElem->nextElement;
 			}
@@ -67,7 +66,7 @@ struct List {
 	}
 
 	Element* get(unsigned int index) {
-		if (index < size) {
+		if (index <= size) {
 			Element *elem = head;
 
 			for (int i = 0; i < index; i++) {
@@ -113,11 +112,8 @@ struct LinkedList {
 				tail = elem;
 			}
 			else {
-				Element *nextElem;
-				Element *prevElem;
-
-				prevElem = get(index);
-				nextElem = prevElem->nextElement;
+				Element *nextElem = get(index);
+				Element *prevElem = prevElem->nextElement;
 
 				elem->nextElement = nextElem;
 				elem->prevElement = prevElem;
@@ -149,17 +145,13 @@ struct LinkedList {
 				}
 			}
 			else {
-				Element *nextElem;
-				Element *prevElem;
+				removeElem = get(index);
 
-				prevElem = get(index - 1);
-				nextElem = prevElem->nextElement;
-
-				removeElem = prevElem->nextElement;
+				Element *nextElem = removeElem->nextElement;;
+				Element *prevElem = removeElem->prevElement;;
 
 				prevElem->nextElement = nextElem;
-				nextElem->prevElement = prevElem;
-			
+				nextElem->prevElement = prevElem;		
 			}
 
 			delete[] removeElem;
@@ -181,14 +173,15 @@ struct LinkedList {
 };
 
 struct LoopList {
+
 	struct Element {
 		double data;
-		Element *nextElement;
-		Element *prevElement;
+		Element *nextElement = NULL;
+		Element *prevElement = NULL;
 	};
 
-	Element *head;
-	Element *tail;
+	Element *head = NULL;
+	Element *tail = NULL;
 	unsigned int size = 0;
 
 	void add(double data, unsigned int index) {
@@ -206,18 +199,21 @@ struct LoopList {
 					elem->nextElement = head;
 					head = elem;
 				}
+
+				tail->nextElement = head;
+				head->prevElement = tail;
 			}
 			else if (index == size) {
 				tail->nextElement = elem;
+
+				elem->nextElement = head;
 				elem->prevElement = tail;
+
 				tail = elem;
 			}
 			else {
-				Element *nextElem;
-				Element *prevElem;
-
-				prevElem = get(index);
-				nextElem = prevElem->nextElement;
+				Element *prevElem = get(index);
+				Element *nextElem = prevElem->nextElement;
 
 				elem->nextElement = nextElem;
 				elem->prevElement = prevElem;
@@ -249,17 +245,13 @@ struct LoopList {
 				}
 			}
 			else {
-				Element *nextElem;
-				Element *prevElem;
+				removeElem = get(index);
 
-				prevElem = get(index - 1);
-				nextElem = prevElem->nextElement;
-
-				removeElem = prevElem->nextElement;
+				Element *nextElem = removeElem->nextElement;	
+				Element *prevElem = removeElem->prevElement;
 
 				prevElem->nextElement = nextElem;
 				nextElem->prevElement = prevElem;
-
 			}
 
 			delete[] removeElem;
@@ -282,21 +274,13 @@ struct LoopList {
 
 void main() {
 	/*List list;
-	double data;
 
 	for (int i = 0; i < 5; i++) {
-		cin >> data;
-		list.add(data, i);
+		list.add(i, i);
 	}
 
 	for (int i = 0; i < 5; i++) {
-		data = list.get(i)->data;
-		cout << data << endl;
-	}
-
-	for (int i = 0; i < 5; i++) {
-		cout << list.get(0)->data << endl;
-		list.remove(0);
+		cout << list.get(i)->data << endl;
 	}
 
 	for (int i = 0; i < list.size; i++) {
@@ -310,7 +294,36 @@ void main() {
 		ll.add(i, i);
 	}
 
+	ll.remove(3);
+
 	for (int i = 0; i < ll.size; i++) {
 		cout << ll.get(i)->data << endl;
 	}*/
+
+	/*List list;
+	double data;
+
+	for (int i = 0; i < 5; i++) {
+		list.add(i, i);
+	}
+
+	List::Element *head = list.head;
+
+	while (head != NULL) {
+		cout << head->data << endl;
+		head = head->nextElement;
+	}*/
+
+	LoopList ll;
+
+	for (int i = 0; i < 5; i++) {
+		ll.add(i, i);
+	}
+
+	LoopList::Element *head = ll.head;
+
+	for (int i = 0; i < 20; i++) {
+		cout << head->data << endl;
+		head = head->nextElement;
+	}
 }
