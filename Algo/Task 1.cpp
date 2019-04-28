@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
-#include <cstdlib>;
-#include <windows.h>;
+#include <cstdlib>
+#include <windows.h>
 #include <iostream>
 
 using namespace std;

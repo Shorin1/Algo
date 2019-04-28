@@ -1,6 +1,6 @@
 #include "pch.h"
-#include <cstdlib>;
-#include <windows.h>;
+#include <cstdlib>
+#include <windows.h>
 #include <iostream>
 
 using namespace std;
@@ -272,7 +272,7 @@ struct LoopList {
 	}
 };
 
-void main() {
+void main5() {
 	/*List list;
 
 	for (int i = 0; i < 5; i++) {

@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "pch.h"
-#include <cstdlib>;
-#include <windows.h>;
+#include <cstdlib>
+#include <windows.h>
 #include <iostream>
 #include <string>
 #include <sstream>
