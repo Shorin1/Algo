@@ -126,7 +126,7 @@ double popPriorityQueue(Elements *element) {
 	}
 }
 
-int main() {
+int main4() {
 	int n;
 	double data;
 	int iterator;
