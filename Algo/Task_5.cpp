@@ -273,7 +273,7 @@ struct LoopList {
 };
 
 void main5() {
-	/*List list;
+	List list;
 
 	for (int i = 0; i < 5; i++) {
 		list.add(i, i);
@@ -285,7 +285,7 @@ void main5() {
 
 	for (int i = 0; i < list.size; i++) {
 		cout << list.get(i)->data;
-	}*/
+	}
 
 	/*LinkedList ll;
 	double data;

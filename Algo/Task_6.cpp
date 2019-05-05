@@ -18,12 +18,54 @@ void bubbleSort(double *arr, int length) {
 	}
 }
 
-void quickSort(double *arr, int length) {
+void partition(double *arr, int begin, int end) {
+	double middle = arr[(begin + end) / 2];
+	int left = begin, rigth = end;
+	double temp;
 
+	do {
+
+		while (arr[left] < middle) {
+			left++;
+		}
+
+		while (arr[rigth] > middle) {
+			rigth--;
+		}
+
+		if (left <= rigth) {
+			temp = arr[left];
+			arr[left] = arr[rigth];
+			arr[rigth] = temp;
+			left++;
+			rigth--;
+		}
+
+	} while (left <= rigth);
+
+	if (begin < rigth) {
+		partition(arr, begin, rigth);
+	}
+
+	if (end > left) {
+		partition(arr, left, end);
+	}
 }
 
-void main() {
-	double *arr = new double[10];
+void quickSort(double *arr, int length) {
+	partition(arr, 0, length - 1);
+}
+
+void main6() {
+	double arr[5];
+
+	for (int i = 0; i < 5; i++) {
+		cin >> arr[i];
+	}
+
+	quickSort(arr, 5);
 	
-	
+	for (int i = 0; i < 5; i++) {
+		cout << arr[i] << endl;
+	}
 }
