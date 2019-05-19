@@ -56,16 +56,16 @@ void quickSort(double *arr, int length) {
 	partition(arr, 0, length - 1);
 }
 
-void main6() {
+void main() {
 	double arr[5];
 
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 7; i++) {
 		cin >> arr[i];
 	}
 
-	quickSort(arr, 5);
+	quickSort(arr, 7);
 	
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 7; i++) {
 		cout << arr[i] << endl;
 	}
 }

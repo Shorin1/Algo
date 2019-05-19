@@ -145,7 +145,7 @@ int binarySearchList(List *list, double key) {
 	return -1;
 }
 
-void main() {
+void main8() {
 	double arr[5];
 
 	for (int i = 0; i < 5; i++) {
