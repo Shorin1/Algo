@@ -68,48 +68,52 @@ struct Tree {
 		remove(root, data);
 	}
 
-	Node* remove(Node* node, double data) {
+	Node* remove(Node* node, double key) {
 		if (node == nullptr) {
 			return node;
 		}
 
-		if (data == node->data) {
+		if (node->data == key) {
 			Node* temp;
 
-			if (node->right == nullptr) {
+			if (node->right== nullptr) {
 				temp = node->left;
 			}
 			else {
-				Node* ptr = node->right;
+				temp = node->right;
 
-				if (ptr->left == nullptr) {
-					ptr->left = node->left;
-					temp = ptr;
+				if (temp->left == nullptr) {
+					temp->left = node->left;
 				}
 				else {
-					Node* pmin = ptr->left;
-					while (pmin->left != nullptr) {
-						ptr = pmin;
-						pmin = ptr->left;
-					}
-					ptr->left = pmin->right;
-					pmin->left = node->left;
-					pmin->right = node->right;
-					temp = pmin;
-				}
+					Node* min = temp->left;
 
+					while (min->left != nullptr){
+						temp = min;
+						min = temp->left;
+					}
+
+					temp->left = min->right;
+					min->left = node->left;
+					min->right = node->right;
+					temp = min;
+				}
+			}
+
+			if (node == root) {
+				root = temp;
 			}
 
 			delete node;
 			return temp;
 		}
-		else if (data < node->data) {
-			node->left = remove(node->left, data);
+		else if (key < node->data) {
+			node->left = remove(node->left, key);
 		}
 		else {
-			node->right = remove(node->right, data);
+			node->right = remove(node->right, key);
 		}
-
+		
 		return node;
 	}
 
@@ -176,7 +180,4 @@ void main() {
 	tree.preorderPrint(tree.root);
 	cout << endl;
 	tree.postorderPrint(tree.root);
-
-
-
 }
