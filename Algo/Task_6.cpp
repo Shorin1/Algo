@@ -56,7 +56,7 @@ void quickSort(double *arr, int length) {
 	partition(arr, 0, length - 1);
 }
 
-void main() {
+void main6() {
 	double arr[5];
 
 	for (int i = 0; i < 7; i++) {
